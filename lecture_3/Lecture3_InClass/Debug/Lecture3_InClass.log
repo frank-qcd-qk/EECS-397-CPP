@@ -1,0 +1,3 @@
+﻿  Lecture3_InClass.cpp
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_InClass.cpp(11,20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Lecture3_InClass.vcxproj -> C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Debug\Lecture3_InClass.exe
