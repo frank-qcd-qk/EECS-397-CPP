@@ -1,1 +1,4 @@
-﻿LINK : fatal error LNK1168: cannot open C:\Users\Frank\Desktop\EECS-397-CPP\lecture_2\Lecture2_InClass\Debug\Lecture2_InClass.exe for writing
+﻿  Lecture2_InClass.cpp
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_2\Lecture2_InClass\Lecture2_InClass.cpp(105,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_2\Lecture2_InClass\Lecture2_InClass.cpp(123,33): warning C4101: 'e': unreferenced local variable
+  Lecture2_InClass.vcxproj -> C:\Users\Frank\Desktop\EECS-397-CPP\lecture_2\Lecture2_InClass\Debug\Lecture2_InClass.exe
