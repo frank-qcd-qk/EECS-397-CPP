@@ -33,15 +33,14 @@ void parseSentence(std::vector<std::string>& sentenceInfo, const std::string& s,
         ++iter;
     }
     
-
+    std::cout << "Found match: ";
     while (std::regex_search(modifiedString, m, rgx)) {
         diceInfo.push_back(m[0]);
+        std::cout << m[0] << "    ";
         modifiedString = m.suffix();
-    }
 
-    std::regex_search(s, m, rgx);
-    for (auto x : m) 
-        diceInfo.push_back(x);
+    }
+    std::cout << std::endl;
 }
 
 void parseTokens(const std::string line, std::vector<std::string>& information, int& rollCount, int& diceID, int& mutiplier, int& offsetter) {
@@ -52,7 +51,7 @@ void parseTokens(const std::string line, std::vector<std::string>& information, 
     // convert it to integer and assign it as the count
     // convert it to integer and assign it as the number of faces
     if (information.size() == 2) {
-        mutiplier = 0;
+        mutiplier = 1;
         offsetter = 0;
         diceID = std::stoi(information.back());
         information.pop_back();
@@ -155,7 +154,7 @@ int main_part1() {
     int DEBUG_line_counter = 0;
     int rollCount = 0;
     int diceID = 0;
-    int mutiplier = 0;
+    int mutiplier = 1;
     int offsetter = 0;
 
     while (!input.eof()) {
@@ -243,12 +242,10 @@ int main_part2() {
 
     // Loop through to the end of the input file
     std::string line;
-    std::string frontBullShit;
-    std::string backBullShit;
     int DEBUG_line_counter = 0;
     int rollCount = 0;
     int diceID = 0;
-    int mutiplier = 0;
+    int mutiplier = 1;
     int offsetter = 0;
 
     while (!input.eof()) {
@@ -257,6 +254,7 @@ int main_part2() {
         DEBUG_line_counter++;
         // For each line
         std::getline(input, line);
+        std::cout << std::endl;
         std::cout << "Observe Line: " << DEBUG_line_counter << std::endl;
         std::cout << line << std::endl;
         // copy from start to d where d not included to a variable
@@ -265,26 +263,39 @@ int main_part2() {
 
         parseSentence(sentenceinfo,line, "\\d+d\\d+", diceInfo);
         std::cout << "sentenceinfo length: " << sentenceinfo.size() << "     DiceINFO Length: " << diceInfo.size() << std::endl;
-        /*
+        
+        int DEBUG_diceINFO_count = 0;
         for (auto x : diceInfo) {
+            DEBUG_diceINFO_count++;
             try {
-                parseTokens(line, diceInfo, rollCount, diceID, mutiplier, offsetter);
+                std::vector<std::string> individualDice = parseDice(x, "[*+-/d]");
+                parseTokens(line, individualDice, rollCount, diceID, mutiplier, offsetter);
             }
             catch (...) {
                 std::cout << "Parse Failed!" << std::endl;
                 exit(80);
             }
-            std::cout << "Dice: " << diceID << " faces    Roll: " << rollCount << " times    Mutiplier: " << mutiplier << "        Offset: " << offsetter << std::endl;
+            std::cout<<"Dice Number: "<<DEBUG_diceINFO_count << "  Face: " << diceID << "    Roll: " << rollCount << " times    Mutiplier: " << mutiplier << "        Offset: " << offsetter << std::endl;
             int sum = mutiplier * rollDice(rollCount, diceID) + offsetter;
             processedDiceInfo.push_back(std::to_string(sum));
         }
-        */
-        /*
+        
+        
         // Convert the sum into string
         // Write the string into output file
+        std::string output_String;
+        output_String += sentenceinfo.front();
+        sentenceinfo.erase(sentenceinfo.begin());
+        while (!sentenceinfo.empty() && !processedDiceInfo.empty()) {
+            output_String += processedDiceInfo.front();
+            output_String += sentenceinfo.front();
+            sentenceinfo.erase(sentenceinfo.begin());
+            processedDiceInfo.erase(processedDiceInfo.begin());
+        }
+
         try {
-            std::cout << "Write value: " << sum << std::endl;
-            output << std::to_string(sum) << "\n";
+            std::cout << "Write value: " << output_String << std::endl;
+            output << output_String << "\n";
             std::cout << "Write Success!" << std::endl;
         }
         catch (std::exception & e) {
@@ -293,7 +304,7 @@ int main_part2() {
             return 97;
         }
         std::cout << std::endl;
-        */
+        
     }
     // loop shoud end here
     //close input file
