@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-int main()
+int main1()
 {
     std::cout << "==========================================================" << std::endl;
     std::srand(time(NULL)); //initialize the random number generator
