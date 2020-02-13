@@ -315,6 +315,7 @@ int main_part2() {
 }
 
 int main() {
-    //main_part1();
+    main_part1();
     main_part2();
+
 }
