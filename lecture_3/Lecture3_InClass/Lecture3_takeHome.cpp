@@ -22,7 +22,7 @@ std::vector<std::string> parseDice(const std::string& s, std::string rgx_id){
 }
 
 void parseSentence(std::vector<std::string>& sentenceInfo, const std::string& s, std::string rgx_id, std::vector<std::string>& diceInfo) {
-
+    std::string modifiedString = s;
     std::regex rgx(rgx_id);
     std::smatch m;
     std::sregex_token_iterator iter(s.begin(), s.end(), rgx, -1);
@@ -32,11 +32,16 @@ void parseSentence(std::vector<std::string>& sentenceInfo, const std::string& s,
         sentenceInfo.push_back(*iter);
         ++iter;
     }
+    
 
-    while (std::regex_search(s, m, rgx)) {
-        for (auto x : m) diceInfo.push_back(x);
+    while (std::regex_search(modifiedString, m, rgx)) {
+        diceInfo.push_back(m[0]);
+        modifiedString = m.suffix();
     }
 
+    std::regex_search(s, m, rgx);
+    for (auto x : m) 
+        diceInfo.push_back(x);
 }
 
 void parseTokens(const std::string line, std::vector<std::string>& information, int& rollCount, int& diceID, int& mutiplier, int& offsetter) {
@@ -158,7 +163,8 @@ int main_part1() {
 
         DEBUG_line_counter++;
         // For each line
-        input >> line; //load one line from input to dice string
+        //load one line from input to dice string
+        std::getline(input, line);
         std::cout << "Observe Line: " << DEBUG_line_counter << std::endl;
         std::cout << line << std::endl;
         // copy from start to d where d not included to a variable
@@ -250,14 +256,14 @@ int main_part2() {
 
         DEBUG_line_counter++;
         // For each line
-        input >> line; //load one line from input to dice string
+        std::getline(input, line);
         std::cout << "Observe Line: " << DEBUG_line_counter << std::endl;
         std::cout << line << std::endl;
         // copy from start to d where d not included to a variable
         // copy from d to the end (d is not included) to a variable
         std::vector<std::string> diceInfo,sentenceinfo,processedDiceInfo;
 
-        parseSentence(sentenceinfo, line, "(\d+)d(\d+)",diceInfo);
+        parseSentence(sentenceinfo,line, "\\d+d\\d+", diceInfo);
         std::cout << "sentenceinfo length: " << sentenceinfo.size() << "     DiceINFO Length: " << diceInfo.size() << std::endl;
         /*
         for (auto x : diceInfo) {

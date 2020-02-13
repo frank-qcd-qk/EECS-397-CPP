@@ -1,7 +1,6 @@
 ﻿  Lecture3_takeHome.cpp
-C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(112,20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(204,20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(260,43): warning C4129: 'd': unrecognized character escape sequence
-C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(200): warning C4715: 'main_part1': not all control paths return a value
-C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(298): warning C4715: 'main_part2': not all control paths return a value
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(117,20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(210,20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(304): warning C4715: 'main_part2': not all control paths return a value
+C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Lecture3_takeHome.cpp(206): warning C4715: 'main_part1': not all control paths return a value
   Lecture3_InClass.vcxproj -> C:\Users\Frank\Desktop\EECS-397-CPP\lecture_3\Lecture3_InClass\Debug\Lecture3_InClass.exe
