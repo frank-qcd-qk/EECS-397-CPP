@@ -1,0 +1,5 @@
+﻿  Lecture6_inClass.cpp
+  dealer.cpp
+C:\Users\Frank\Desktop\EECS-397-CPP\Lecture_6\Lecture6_inClass\dealer.cpp(25,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Lecture6_inClass.vcxproj -> C:\Users\Frank\Desktop\EECS-397-CPP\Lecture_6\Lecture6_inClass\Debug\Lecture6_inClass.exe
